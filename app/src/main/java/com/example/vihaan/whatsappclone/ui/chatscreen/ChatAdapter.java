@@ -71,7 +71,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
 
         public ChatViewHolder(View v){
             super(v);
-            messageTV = (TextView) v.findViewById(R.id.chatTV);
+            messageTV = (TextView) v.findViewById(R.id.groupChatTv);
             chatIV = (ImageView) v.findViewById(R.id.chatIV);
         }
 

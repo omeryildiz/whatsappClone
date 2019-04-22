@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.vihaan.whatsappclone.ui.groupscreen.GroupChatActivity">
+
+    <ScrollView
+        android:id="@+id/my_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/group_lineer_layout">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/message_display_group"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            tools:listitem="@layout/item_chat_group_sent_message" />
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/group_lineer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toLeftOf="@+id/group_lineer_layout_buttons"
+        android:background="@drawable/rect_round"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/group_edit_text"
+            android:layout_width="92dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:hint="Type a Message" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/group_lineer_layout_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floating_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="5dp"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="10dp"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:srcCompat="@drawable/input_send" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floating_button_rec"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="5dp"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="0dp"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:srcCompat="@drawable/input_mic_white" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floating_button_timer"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="5dp"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="0dp"
+            android:visibility="invisible"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:srcCompat="@drawable/common_google_signin_btn_icon_dark_normal_background" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

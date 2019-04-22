@@ -36,7 +36,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MOBILE"
+        android:text=""
         android:layout_alignParentRight="true"/>
 
     <View
@@ -48,6 +48,21 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        />
+
+    <TextView
+        android:id="@+id/group_status_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/lastMessageTimeTV"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/round_corner_green"
+        android:gravity="center"
+        android:text="  "
+        android:textColor="@color/chat_time_color"
+        android:textStyle="bold"
+        android:visibility="visible"
         />
 
 

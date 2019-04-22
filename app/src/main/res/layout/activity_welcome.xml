@@ -10,7 +10,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="19dp"
-        android:text="Welcome to Whatsapp"
+        android:text="Welcome to Pro-pro"
         android:textSize="18dp"
         android:textColor="#118C7E"
         android:textStyle="bold" />

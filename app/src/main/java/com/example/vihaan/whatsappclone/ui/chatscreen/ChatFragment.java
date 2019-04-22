@@ -371,7 +371,7 @@ public class ChatFragment extends Fragment {
 
                 public IncomingViewHolder(View v) {
                     super(v);
-                    chatTV = (TextView) v.findViewById(R.id.chatTV);
+                    chatTV = (TextView) v.findViewById(R.id.groupChatTv);
                     timeTV = (TextView) v.findViewById(R.id.timeTV);
 //                   messageStatusIV = (ImageView) v.findViewById(messageStatusIV);
                     chatIV = (ImageView) v.findViewById(R.id.chatIV);
@@ -401,7 +401,7 @@ public class ChatFragment extends Fragment {
 
                 public OutgoingViewHolder(View v) {
                     super(v);
-                    chatTV = (TextView) v.findViewById(R.id.chatTV);
+                    chatTV = (TextView) v.findViewById(R.id.groupChatTv);
                     timeTV = (TextView) v.findViewById(R.id.timeTV);
                     messageStatusIV = (ImageView) v.findViewById(R.id.messageStatusIV);
                     chatIV = (ImageView) v.findViewById(R.id.chatIV);

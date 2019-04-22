@@ -31,6 +31,17 @@ public class User implements Parcelable {
     @Expose
     private String uid = "";
 
+    @SerializedName("role")
+    @Expose
+    private String role = "";
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public String getName() {
         return name;
@@ -93,6 +104,7 @@ public class User implements Parcelable {
         dest.writeValue(this.isTyping);
         dest.writeString(this.status);
         dest.writeString(this.uid);
+        dest.writeString(this.role);
     }
 
     public User() {
@@ -105,6 +117,7 @@ public class User implements Parcelable {
         this.isTyping = (Boolean) in.readValue(Boolean.class.getClassLoader());
         this.status = in.readString();
         this.uid= in.readString();
+        this.role = in.readString();
     }
 
     public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {

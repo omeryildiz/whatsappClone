@@ -57,10 +57,14 @@ public class UserChatViewHolder extends RecyclerView.ViewHolder implements View.
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 User user = dataSnapshot.getValue(User.class);
-                if (!TextUtils.isEmpty(user.getProfilePicUrl())) {
-                    Picasso.with(userIV.getContext()).load(user.getProfilePicUrl()).into(userIV);
+                try {
+                    if (!TextUtils.isEmpty(user.getProfilePicUrl())) {
+                        Picasso.with(userIV.getContext()).load(user.getProfilePicUrl()).into(userIV);
+                    }
+                    nameTV.setText(user.getName());
+                } catch(Exception e) {
+                    e.printStackTrace();
                 }
-                nameTV.setText(user.getName());
             }
 
             @Override

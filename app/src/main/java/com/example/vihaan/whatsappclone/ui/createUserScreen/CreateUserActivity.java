@@ -42,17 +42,18 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
     }
 
 
-    private Button mNextButton;
-    private EditText mUsernameET;
+    private Button mNextButton, mCreateButton;
     private EditText mExistingUserET, mPasswordET;
 
     private void initViews() {
         mNextButton = (Button) findViewById(R.id.nextBtn);
+        mCreateButton = (Button) findViewById(R.id.createButton);
         mNextButton.setOnClickListener(this);
-        mUsernameET = (EditText) findViewById(R.id.userNameET);
+        mCreateButton.setOnClickListener(this);
 
         mExistingUserET = (EditText) findViewById(R.id.existingUserET);
         mPasswordET = (EditText) findViewById(R.id.passwordET);
+        mCreateButton = (Button) findViewById(R.id.createButton);
     }
 
 
@@ -61,6 +62,10 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
         switch (v.getId()) {
             case R.id.nextBtn:
                 onNextButtonClicked();
+                break;
+            case R.id.createButton:
+                onCreateButtonClicked();
+
 
 //                Intent intent = new Intent(this, MainActivity.class);
 //                startActivity(intent);
@@ -79,7 +84,12 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
             return;
         }
 
-        mUserName = mUsernameET.getText().toString();
+
+    }
+
+    private void onCreateButtonClicked() {
+
+        mUserName = mExistingUserET.getText().toString();
         if (!TextUtils.isEmpty(mUserName)) {
             createUser();
         } else {
@@ -102,7 +112,7 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
 
 
                 if (task.isSuccessful()) {
-                    onAuthSuccess(task.getResult().getUser());
+                    onAuthSuccessExistUser(task.getResult().getUser());
                     Util.updateToken();
                 } else {
                     try {
@@ -125,9 +135,10 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
 
     private void createUser() {
         mAuth = FirebaseAuth.getInstance();
-        String email = mUserName + "@gmail.com";
+        String email = mExistingUserET.getText().toString();
+        String password = mPasswordET.getText().toString();
 
-        mAuth.createUserWithEmailAndPassword(email, mUserName)
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -156,11 +167,24 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
     }
 
 
+    private void onAuthSuccessExistUser(FirebaseUser firebaseUser) {
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        User user = new User();
+        user.setName(usernameFromEmail(firebaseUser.getEmail()));
+        user.setUid(firebaseUser.getUid());
+        user.setStatus("Online");
+        mDatabase.child("users").child(firebaseUser.getUid()).setValue(user);
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
     private void onAuthSuccess(FirebaseUser firebaseUser) {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         User user = new User();
         user.setName(usernameFromEmail(firebaseUser.getEmail()));
         user.setUid(firebaseUser.getUid());
+        user.setStatus("Online");
+        user.setRole("guest");
         mDatabase.child("users").child(firebaseUser.getUid()).setValue(user);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

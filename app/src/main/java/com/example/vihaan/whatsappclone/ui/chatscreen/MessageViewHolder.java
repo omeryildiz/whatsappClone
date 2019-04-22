@@ -23,7 +23,7 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
 
         chatIV = (ImageView)itemView.findViewById( R.id.chatIV );
-        chatTV = (TextView)itemView.findViewById( R.id.chatTV );
+        chatTV = (TextView)itemView.findViewById( R.id.groupChatTv);
         timeTV = (TextView)itemView.findViewById( R.id.timeTV );
     }
 
