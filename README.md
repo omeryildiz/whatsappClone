@@ -1,6 +1,4 @@
 # Whatsapp Clone
 Whatsapp android clone using Firebase for realtime chat and notifications.
-
-<a href="/screenshots/device-2017-06-29-164146.png"><img src="/screenshots/device-2017-06-29-164146.png" width="30%"/></a> <a href="/screenshots/device-2017-06-29-165918.png"><img src="/screenshots/device-2017-06-29-165918.png" width="30%"/></a> <a href="/screenshots/device-2017-06-29-164627.png"><img src="/screenshots/device-2017-06-29-164627.png" width="30%"/></a>
-<a href="/screenshots/device-2017-06-29-172154.png"><img src="/screenshots/device-2017-06-29-172154.png" width="30%"/></a>
-
+This is a forked repository. I added like "creating group", "group chat", "recording voice" etc. specs to the project.
+This android application is used for training English pronunciation for specific users. For this reason, Using the app may not reasonable for other users. You can change or edit code your own purposes.
